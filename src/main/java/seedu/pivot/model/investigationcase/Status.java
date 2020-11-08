@@ -2,6 +2,9 @@ package seedu.pivot.model.investigationcase;
 
 import static java.util.Objects.requireNonNull;
 
+/**
+ * Represents a Status of a Case in PIVOT.
+ */
 public enum Status {
     ACTIVE, COLD, CLOSED;
 
@@ -9,8 +12,9 @@ public enum Status {
 
     /**
      * Creates a Status Enum Object using the given status.
-     * @param status
-     * @return Status
+     *
+     * @param status The value of the Status to be created.
+     * @return Status The Status (ACTIVE, COLD or CLOSED) as specified by the input String.
      */
     public static Status createStatus(String status) {
         requireNonNull(status);

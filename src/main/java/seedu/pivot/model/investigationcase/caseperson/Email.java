@@ -17,7 +17,7 @@ public class Email {
             + "2. This is followed by a '@' and then a domain name and then followed by a top-level domain "
             + "(e.g. '.com'). "
             + "The domain name must:\n"
-            + "    - start and end with alphanumeric characters\n"
+            + "    - start and end with alphanumeric characters.\n"
             + "    - consist of alphanumeric characters, a period or a hyphen for the characters in between, if any.\n"
             + "    - not contain consecutive periods, but consecutive hyphens are allowed.";
 

@@ -64,9 +64,11 @@ public class DeleteCommandParser implements Parser<DeleteCommand> {
         final String deleteType = matcher.group("commandWord");
         final String indexString = matcher.group("arguments");
 
+        Index index;
+
         switch (deleteType) {
         case TYPE_CASE:
-            Index index = ParserUtil.getParsedIndex(indexString, DeleteCommand.MESSAGE_USAGE_MAIN_PAGE);
+            index = ParserUtil.getParsedIndex(indexString, DeleteCommand.MESSAGE_USAGE_MAIN_PAGE);
             return new DeleteCaseCommand(index);
         case TYPE_DOC:
         case TYPE_SUSPECT:
@@ -104,16 +106,20 @@ public class DeleteCommandParser implements Parser<DeleteCommand> {
             throw new ParseException(MESSAGE_INCORRECT_MAIN_PAGE);
         }
 
-        Index index = ParserUtil.getParsedIndex(indexString, DeleteCommand.MESSAGE_USAGE_CASE_PAGE);
+        Index index;
 
         switch (deleteType) {
         case TYPE_DOC:
+            index = ParserUtil.getParsedIndex(indexString, DeleteCommand.MESSAGE_USAGE_CASE_PAGE);
             return new DeleteDocumentCommand(caseIndex, index);
         case TYPE_SUSPECT:
+            index = ParserUtil.getParsedIndex(indexString, DeleteCommand.MESSAGE_USAGE_CASE_PAGE);
             return new DeleteSuspectCommand(caseIndex, index);
         case TYPE_WITNESS:
+            index = ParserUtil.getParsedIndex(indexString, DeleteCommand.MESSAGE_USAGE_CASE_PAGE);
             return new DeleteWitnessCommand(caseIndex, index);
         case TYPE_VICTIM:
+            index = ParserUtil.getParsedIndex(indexString, DeleteCommand.MESSAGE_USAGE_CASE_PAGE);
             return new DeleteVictimCommand(caseIndex, index);
         default:
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT,

@@ -7,7 +7,7 @@ start
 
 if () then ([command commits Pivot])
     :Save Pivot to
-    pivotStateStack;
+    pivotStateList;
 else ([else])
 endif
 stop

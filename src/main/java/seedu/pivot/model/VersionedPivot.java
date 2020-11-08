@@ -9,7 +9,7 @@ import java.util.List;
 import seedu.pivot.logic.commands.Page;
 import seedu.pivot.logic.commands.Undoable;
 
-public class VersionedPivot extends Pivot {
+public class VersionedPivot {
 
     public static final String INITIAL_COMMAND = "Initial command";
     public static final int INITIAL_STATE = 0;

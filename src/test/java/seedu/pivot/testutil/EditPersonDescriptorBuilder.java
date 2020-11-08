@@ -1,10 +1,10 @@
 package seedu.pivot.testutil;
 
 import seedu.pivot.logic.commands.EditPersonCommand.EditPersonDescriptor;
+import seedu.pivot.model.investigationcase.Name;
 import seedu.pivot.model.investigationcase.caseperson.Address;
 import seedu.pivot.model.investigationcase.caseperson.CasePerson;
 import seedu.pivot.model.investigationcase.caseperson.Email;
-import seedu.pivot.model.investigationcase.caseperson.Name;
 import seedu.pivot.model.investigationcase.caseperson.Phone;
 import seedu.pivot.model.investigationcase.caseperson.Sex;
 

@@ -24,8 +24,8 @@ import seedu.pivot.logic.commands.testutil.ModelStub;
 import seedu.pivot.logic.state.StateManager;
 import seedu.pivot.model.investigationcase.Case;
 import seedu.pivot.model.investigationcase.Document;
+import seedu.pivot.model.investigationcase.Name;
 import seedu.pivot.model.investigationcase.Reference;
-import seedu.pivot.model.investigationcase.caseperson.Name;
 import seedu.pivot.testutil.CaseBuilder;
 
 public class EditDocumentCommandTest {

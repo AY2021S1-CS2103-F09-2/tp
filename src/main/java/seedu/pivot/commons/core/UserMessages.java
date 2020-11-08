@@ -14,7 +14,8 @@ public class UserMessages {
     public static final String MESSAGE_INVALID_CASE_DISPLAYED_INDEX = "The case index provided is invalid";
     public static final String MESSAGE_CASES_LISTED_OVERVIEW = "%1$d cases listed!";
     public static final String MESSAGE_INCORRECT_MAIN_PAGE = "Invalid command. "
-            + "Please return to main page to use this command.";
+            + "Please return to the main page to use this command.\n"
+            + "To return to the main page, type 'return'";
     public static final String MESSAGE_INCORRECT_CASE_PAGE = "Invalid command. "
             + "Please open a case to use this command.";
 

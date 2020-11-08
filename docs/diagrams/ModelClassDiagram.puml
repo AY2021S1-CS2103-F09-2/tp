@@ -8,6 +8,8 @@ Package Model <<Rectangle>>{
 Interface ReadOnlyPivot <<Interface>>
 Interface Model <<Interface>>
 Interface ObservableList <<Interface>>
+Interface Undoable <<Interface>>
+Class VersionedPivot
 Class Pivot
 Class ReadOnlyPivot
 Class Model
@@ -17,64 +19,36 @@ Class ReadOnlyUserPrefs
 
 Package InvestigationCase {
 Class Case
-Class Title
-Class Description
-Class "{abstract}\nAlphanumeric" as Alphanumeric
-Class "<<enumeration>>\nStatus" as Status
-note bottom of Status: ACTIVE (default), COLD, CLOSED
-Class Suspect
-Class Witness
-Class Victim
-Class Document
 Class UniqueCaseList
-Class Tag
-Class "{abstract}\nCasePerson" as CasePerson
-Class Name
-Class Reference
 }
 
-Package Tag {
-Class Tag
+Package VersionedPivot {
+Class VersionedPivot
+Class PivotState
 }
 
+package Model{
+Class HiddenModel #FFFFFF
 }
-
-
 
 Class HiddenOutside #FFFFFF
 HiddenOutside ..> Model
 
-Pivot .up.|> ReadOnlyPivot
+Pivot ..|> ReadOnlyPivot
 
 ModelManager .up.|> Model
 Model .right.> ObservableList
 ModelManager o--> "1" Pivot
+ModelManager o-> "1" VersionedPivot
 ModelManager o-left-> "1" UserPrefs
 UserPrefs .up.|> ReadOnlyUserPrefs
 
-Suspect -down-|> CasePerson
-Witness -down-|> CasePerson
-Victim -down-|> CasePerson
-
-Title -down-|> Alphanumeric
-Description -down-|> Alphanumeric
-Name -up-|> Alphanumeric
+VersionedPivot *--> "1..*" PivotState
+PivotState o--> "1" ReadOnlyPivot
+PivotState *--> "1" Undoable
 
 Pivot *--> "1" UniqueCaseList
 UniqueCaseList o--> "*" Case
-Case *--> "1" Title
-Case *--> "1" Status
-Case *--> "0..1" Description
-Case *--> "*" Document
-Case *--> "*" Suspect
-Case *--> "*" Witness
-Case *--> "*" Victim
-Case *--> "*" Tag
 
-Document *--> "1" Name
-Document *--> "1" Reference
-
-CasePerson *--> "1" Name
-
-ModelManager -->"1" Case : filtered list
+ModelManager --> "1" Case : filtered list
 @enduml

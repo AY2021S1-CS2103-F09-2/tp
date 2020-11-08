@@ -16,8 +16,8 @@ import seedu.pivot.commons.core.index.Index;
 import seedu.pivot.logic.commands.documentcommands.EditDocumentCommand;
 import seedu.pivot.logic.parser.exceptions.ParseException;
 import seedu.pivot.logic.state.StateManager;
+import seedu.pivot.model.investigationcase.Name;
 import seedu.pivot.model.investigationcase.Reference;
-import seedu.pivot.model.investigationcase.caseperson.Name;
 
 public class EditDocumentCommandParser implements Parser<EditDocumentCommand> {
     @Override

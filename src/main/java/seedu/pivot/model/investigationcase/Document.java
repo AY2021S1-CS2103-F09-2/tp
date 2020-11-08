@@ -4,8 +4,9 @@ import static java.util.Objects.requireNonNull;
 
 import java.util.Objects;
 
-import seedu.pivot.model.investigationcase.caseperson.Name;
-
+/**
+ * Represents a Document in a Case in PIVOT.
+ */
 public class Document {
 
     public final Name name;

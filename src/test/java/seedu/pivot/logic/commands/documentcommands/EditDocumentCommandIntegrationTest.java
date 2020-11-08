@@ -22,8 +22,8 @@ import seedu.pivot.model.Pivot;
 import seedu.pivot.model.UserPrefs;
 import seedu.pivot.model.investigationcase.Case;
 import seedu.pivot.model.investigationcase.Document;
+import seedu.pivot.model.investigationcase.Name;
 import seedu.pivot.model.investigationcase.Reference;
-import seedu.pivot.model.investigationcase.caseperson.Name;
 import seedu.pivot.testutil.CaseBuilder;
 
 public class EditDocumentCommandIntegrationTest {

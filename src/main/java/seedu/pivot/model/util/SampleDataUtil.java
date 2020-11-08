@@ -12,12 +12,12 @@ import seedu.pivot.model.investigationcase.ArchiveStatus;
 import seedu.pivot.model.investigationcase.Case;
 import seedu.pivot.model.investigationcase.Description;
 import seedu.pivot.model.investigationcase.Document;
+import seedu.pivot.model.investigationcase.Name;
 import seedu.pivot.model.investigationcase.Reference;
 import seedu.pivot.model.investigationcase.Status;
 import seedu.pivot.model.investigationcase.Title;
 import seedu.pivot.model.investigationcase.caseperson.Address;
 import seedu.pivot.model.investigationcase.caseperson.Email;
-import seedu.pivot.model.investigationcase.caseperson.Name;
 import seedu.pivot.model.investigationcase.caseperson.Phone;
 import seedu.pivot.model.investigationcase.caseperson.Sex;
 import seedu.pivot.model.investigationcase.caseperson.Suspect;
@@ -48,24 +48,26 @@ public class SampleDataUtil {
     public static Case[] getSampleCases() {
         return new Case[] {
             new Case(new Title("Ang Mo Kio Car Theft"), sampleDescription,
-                    Status.createStatus("active"), sampleDocuments,
-                    sampleSuspects, sampleVictims,
-                    sampleWitnesses, getTagSet(), ArchiveStatus.DEFAULT),
+                        Status.createStatus("active"), sampleDocuments, sampleSuspects, sampleVictims,
+                        sampleWitnesses, getTagSet(), ArchiveStatus.DEFAULT),
             new Case(new Title("Bishan Shopping Theft"), sampleDescription,
-                    Status.createStatus("closed"), sampleDocuments,
-                    sampleSuspects, sampleVictims, sampleWitnesses, getTagSet(), ArchiveStatus.DEFAULT),
+                        Status.createStatus("closed"), sampleDocuments,
+                        sampleSuspects, sampleVictims, sampleWitnesses, getTagSet(), ArchiveStatus.DEFAULT),
             new Case(new Title("Cha Bee Hoon Stall Fire"), sampleDescription,
-                    Status.createStatus("cold"), sampleDocuments,
-                    sampleSuspects, sampleVictims, sampleWitnesses, getTagSet(), ArchiveStatus.DEFAULT),
+                        Status.createStatus("cold"), sampleDocuments,
+                        sampleSuspects, sampleVictims, sampleWitnesses, getTagSet(), ArchiveStatus.DEFAULT),
             new Case(new Title("Dhoby Ghaut Murder Case"), sampleDescription,
-                    Status.createStatus("active"), sampleDocuments,
-                    sampleSuspects, sampleVictims, sampleWitnesses, getTagSet(), ArchiveStatus.DEFAULT),
+                        Status.createStatus("active"), sampleDocuments,
+                        sampleSuspects, sampleVictims, sampleWitnesses, getTagSet(), ArchiveStatus.DEFAULT),
             new Case(new Title("IceCream Man Harassment"), sampleDescription,
-                    Status.createStatus("active"), sampleDocuments,
-                    sampleSuspects, sampleVictims, sampleWitnesses, getTagSet(), ArchiveStatus.DEFAULT),
+                        Status.createStatus("active"), sampleDocuments,
+                        sampleSuspects, sampleVictims, sampleWitnesses, getTagSet(), ArchiveStatus.DEFAULT),
+            new Case(new Title("Klook Scam"), sampleDescription,
+                        Status.createStatus("active"), sampleDocuments,
+                        sampleSuspects, sampleVictims, sampleWitnesses, getTagSet(), ArchiveStatus.ARCHIVED),
             new Case(new Title("Roti Prata Shop Robbery"), sampleDescription,
-                    Status.createStatus("active"), sampleDocuments,
-                    sampleSuspects, sampleVictims, sampleWitnesses, getTagSet(), ArchiveStatus.DEFAULT)
+                        Status.createStatus("active"), sampleDocuments,
+                        sampleSuspects, sampleVictims, sampleWitnesses, getTagSet(), ArchiveStatus.ARCHIVED)
         };
     }
 

@@ -7,9 +7,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import seedu.pivot.commons.core.LogsCenter;
 import seedu.pivot.commons.exceptions.IllegalValueException;
+import seedu.pivot.model.investigationcase.Name;
 import seedu.pivot.model.investigationcase.caseperson.Address;
 import seedu.pivot.model.investigationcase.caseperson.Email;
-import seedu.pivot.model.investigationcase.caseperson.Name;
 import seedu.pivot.model.investigationcase.caseperson.Phone;
 import seedu.pivot.model.investigationcase.caseperson.Sex;
 import seedu.pivot.model.investigationcase.caseperson.Witness;

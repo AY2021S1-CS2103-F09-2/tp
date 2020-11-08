@@ -1,0 +1,68 @@
+@startuml
+!include style.puml
+skinparam arrowThickness 1.1
+skinparam arrowColor MODEL_COLOR
+skinparam classBackgroundColor MODEL_COLOR
+
+Package InvestigationCase {
+Class UniqueCaseList
+Class Case
+Class Title
+Class Description
+Class "{abstract}\nAlphanumeric" as Alphanumeric
+Class "<<enumeration>>\nStatus" as Status
+note bottom of Status: ACTIVE (default), COLD, CLOSED
+
+Class "<<enumeration>>\nArchiveStatus" as ArchiveStatus
+note bottom of ArchiveStatus: DEFAULT, ARCHIVED
+Class Document
+Class Name
+Class Reference
+
+Package CasePerson {
+Class "{abstract}\nCasePerson" as CasePerson
+Class Suspect
+Class Victim
+Class Witness
+Class "<<enumeration>>\nSex" as Sex
+Class Phone
+Class Email
+Class Address
+}
+
+}
+
+
+Class HiddenOutside #FFFFFF
+Class HiddenOutside2 #FFFFFF
+
+Suspect -down-|> CasePerson
+Witness -down-|> CasePerson
+Victim -down-|> CasePerson
+
+Title -down-|> Alphanumeric
+Name -up-|> Alphanumeric
+
+HiddenOutside2 *--> "1" UniqueCaseList
+UniqueCaseList o--> "*" Case
+Case *---> "1" Title
+Case *---> "1" Status
+Case *--> "0..1" Description
+Case *--> "1 " ArchiveStatus
+Case *---> "*" Document
+Case *--> "*" Suspect
+Case *--> "*" Witness
+Case *--> "*" Victim
+
+Document *--> "1" Name
+Document *--> "1" Reference
+
+CasePerson *--> "1" Name
+CasePerson *---> "1" Sex
+CasePerson *--> "1" Phone
+CasePerson *--> "0..1" Email
+CasePerson *--> "0..1" Address
+
+HiddenOutside --->"1" Case : filtered list
+
+@enduml

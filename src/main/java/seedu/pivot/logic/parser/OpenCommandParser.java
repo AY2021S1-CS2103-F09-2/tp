@@ -50,10 +50,11 @@ public class OpenCommandParser implements Parser<OpenCommand> {
         final String openType = matcher.group("commandWord");
         final String indexString = matcher.group("arguments");
 
-        Index index = ParserUtil.getParsedIndex(indexString, OpenCaseCommand.MESSAGE_USAGE);
+        Index index;
 
         switch(openType) {
         case TYPE_CASE:
+            index = ParserUtil.getParsedIndex(indexString, OpenCaseCommand.MESSAGE_USAGE);
             return new OpenCaseCommand(index);
         case TYPE_DOC:
             throw new ParseException(MESSAGE_INCORRECT_CASE_PAGE);
@@ -71,12 +72,14 @@ public class OpenCommandParser implements Parser<OpenCommand> {
         final String openType = matcher.group("commandWord");
         final String indexString = matcher.group("arguments");
 
-        Index index = ParserUtil.getParsedIndex(indexString, OpenCommand.MESSAGE_USAGE);
+        Index index;
 
         switch(openType) {
         case TYPE_CASE:
+            index = ParserUtil.getParsedIndex(indexString, OpenCommand.MESSAGE_USAGE);
             return new OpenCaseCommand(index);
         case TYPE_DOC:
+            index = ParserUtil.getParsedIndex(indexString, OpenCommand.MESSAGE_USAGE);
             return new OpenDocumentCommand(index);
 
         default:

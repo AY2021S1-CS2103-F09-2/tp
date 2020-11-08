@@ -1,0 +1,75 @@
+@startuml
+!include style.puml
+
+box Logic LOGIC_COLOR_T1
+participant ":LogicManager" as LogicManager LOGIC_COLOR
+participant ":PivotParser" as PivotParser LOGIC_COLOR
+participant ":UnarchiveCommandParser" as UnarchiveCommandParser LOGIC_COLOR
+participant "command:UnarchiveCommand" as UnarchiveCommand LOGIC_COLOR
+participant ":CommandResult" as CommandResult LOGIC_COLOR
+end box
+
+box Model MODEL_COLOR_T1
+participant ":Model" as Model MODEL_COLOR
+end box
+
+[-> LogicManager : execute("unarchive case 1")
+activate LogicManager
+
+LogicManager -> PivotParser : parseCommand("unarchive case 1")
+activate PivotParser
+
+create UnarchiveCommandParser
+PivotParser -> UnarchiveCommandParser
+activate UnarchiveCommandParser
+
+UnarchiveCommandParser --> PivotParser
+deactivate UnarchiveCommandParser
+
+PivotParser -> UnarchiveCommandParser : parse("case 1")
+activate UnarchiveCommandParser
+
+create UnarchiveCommand
+UnarchiveCommandParser -> UnarchiveCommand : UnarchiveCommand(Index)
+activate UnarchiveCommand
+
+UnarchiveCommand --> UnarchiveCommandParser : command
+deactivate UnarchiveCommand
+
+UnarchiveCommandParser --> PivotParser : command
+deactivate UnarchiveCommandParser
+'Hidden arrow to position the destroy marker below the end of the activation bar.
+UnarchiveCommandParser -[hidden]-> PivotParser
+destroy UnarchiveCommandParser
+
+PivotParser --> LogicManager : command
+deactivate PivotParser
+
+LogicManager -> UnarchiveCommand : execute()
+activate UnarchiveCommand
+
+UnarchiveCommand -> Model : deleteCase(archivedCase)
+activate Model
+
+Model --> UnarchiveCommand
+deactivate Model
+
+UnarchiveCommand -> Model : addCase(unarchivedCase)
+activate Model
+
+Model --> UnarchiveCommand
+deactivate Model
+
+create CommandResult
+UnarchiveCommand -> CommandResult
+activate CommandResult
+
+CommandResult --> UnarchiveCommand
+deactivate CommandResult
+
+UnarchiveCommand --> LogicManager : result
+deactivate UnarchiveCommand
+
+[<--LogicManager
+deactivate LogicManager
+@enduml

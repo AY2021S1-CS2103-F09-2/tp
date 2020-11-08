@@ -1,0 +1,79 @@
+@startuml
+!include style.puml
+
+box Logic LOGIC_COLOR_T1
+participant ":LogicManager" as LogicManager LOGIC_COLOR
+participant ":PivotParser" as PivotParser LOGIC_COLOR
+participant ":ListCommandParser" as ListCommandParser LOGIC_COLOR
+participant "command:ListArchiveCommand" as ListArchiveCommand LOGIC_COLOR
+participant ":CommandResult" as CommandResult LOGIC_COLOR
+end box
+
+box Model MODEL_COLOR_T1
+participant ":Model" as Model MODEL_COLOR
+end box
+
+box StateManager STATE_COLOR_T1
+participant ":StateManager" as StateManager STATE_COLOR
+end box
+
+[-> LogicManager : execute("list archive")
+activate LogicManager
+
+LogicManager -> PivotParser : parseCommand("list archive")
+activate PivotParser
+
+create ListCommandParser
+PivotParser -> ListCommandParser
+activate ListCommandParser
+
+ListCommandParser --> PivotParser
+deactivate ListCommandParser
+
+PivotParser -> ListCommandParser : parse("list archive")
+activate ListCommandParser
+
+create ListArchiveCommand
+ListCommandParser -> ListArchiveCommand : ListArchiveCommand()
+activate ListArchiveCommand
+
+ListArchiveCommand --> ListCommandParser : command
+deactivate ListArchiveCommand
+
+ListCommandParser --> PivotParser : command
+deactivate ListCommandParser
+'Hidden arrow to position the destroy marker below the end of the activation bar.
+ListCommandParser -[hidden]-> PivotParser
+destroy ListCommandParser
+
+PivotParser --> LogicManager : command
+deactivate PivotParser
+
+LogicManager -> ListArchiveCommand : execute()
+activate ListArchiveCommand
+
+ListArchiveCommand -> StateManager : setArchivedSection()
+activate StateManager
+
+StateManager --> ListArchiveCommand
+deactivate StateManager
+
+ListArchiveCommand -> Model : updateFilteredCaseList(\nPREDICATE_SHOW_ARCHIVED_CASES)
+activate Model
+
+Model --> ListArchiveCommand
+deactivate Model
+
+create CommandResult
+ListArchiveCommand -> CommandResult
+activate CommandResult
+
+CommandResult --> ListArchiveCommand
+deactivate CommandResult
+
+ListArchiveCommand --> LogicManager : result
+deactivate ListArchiveCommand
+
+[<--LogicManager
+deactivate LogicManager
+@enduml

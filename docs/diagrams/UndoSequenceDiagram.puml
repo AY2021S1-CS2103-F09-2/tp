@@ -11,6 +11,11 @@ box Model MODEL_COLOR_T1
 participant ":Model" as Model MODEL_COLOR
 participant ":VersionedPivot" as VersionedPivot MODEL_COLOR
 end box
+
+box StateManager STATE_COLOR_T1
+participant ":StateManager" as StateManager STATE_COLOR
+end box
+
 [-> LogicManager : execute(undo)
 activate LogicManager
 
@@ -41,6 +46,26 @@ deactivate VersionedPivot
 
 Model --> UndoCommand
 deactivate Model
+
+UndoCommand -> Model : getCommandMessage()
+activate Model
+
+Model -> VersionedPivot : getCommandMessageResult()
+activate VersionedPivot
+
+VersionedPivot --> Model :
+deactivate VersionedPivot
+
+Model --> UndoCommand
+deactivate Model
+
+opt command being undone is main page command
+    UndoCommand -> StateManager : StateManager.resetState()
+    activate StateManager
+
+    StateManager --> UndoCommand
+    deactivate StateManager
+end
 
 UndoCommand --> LogicManager : result
 deactivate UndoCommand

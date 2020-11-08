@@ -7,6 +7,8 @@ import static seedu.pivot.testutil.Assert.assertThrows;
 
 import org.junit.jupiter.api.Test;
 
+import seedu.pivot.model.investigationcase.Name;
+
 
 public class VictimTest {
     private static final Name DEFAULT_NAME = new Name("Test Name");

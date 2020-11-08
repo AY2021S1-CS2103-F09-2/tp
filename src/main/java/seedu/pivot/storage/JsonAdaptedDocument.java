@@ -8,8 +8,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import seedu.pivot.commons.core.LogsCenter;
 import seedu.pivot.commons.exceptions.IllegalValueException;
 import seedu.pivot.model.investigationcase.Document;
+import seedu.pivot.model.investigationcase.Name;
 import seedu.pivot.model.investigationcase.Reference;
-import seedu.pivot.model.investigationcase.caseperson.Name;
 
 /**
  * Jackson-friendly version of {@link Document}.

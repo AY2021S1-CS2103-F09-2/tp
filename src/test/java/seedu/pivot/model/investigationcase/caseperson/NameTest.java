@@ -8,6 +8,7 @@ import static seedu.pivot.testutil.Assert.assertThrows;
 import org.junit.jupiter.api.Test;
 
 import seedu.pivot.model.investigationcase.Description;
+import seedu.pivot.model.investigationcase.Name;
 import seedu.pivot.model.investigationcase.Title;
 
 public class NameTest {

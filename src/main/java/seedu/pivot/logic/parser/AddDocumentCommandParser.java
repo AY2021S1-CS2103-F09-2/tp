@@ -11,8 +11,8 @@ import seedu.pivot.logic.commands.documentcommands.AddDocumentCommand;
 import seedu.pivot.logic.parser.exceptions.ParseException;
 import seedu.pivot.logic.state.StateManager;
 import seedu.pivot.model.investigationcase.Document;
+import seedu.pivot.model.investigationcase.Name;
 import seedu.pivot.model.investigationcase.Reference;
-import seedu.pivot.model.investigationcase.caseperson.Name;
 
 public class AddDocumentCommandParser implements Parser<AddDocumentCommand> {
 

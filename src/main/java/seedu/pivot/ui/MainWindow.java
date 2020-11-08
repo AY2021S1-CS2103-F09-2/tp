@@ -192,6 +192,20 @@ public class MainWindow extends UiPart<Stage> {
             caseTabPane.setTabMinWidth(caseTabPane.getWidth() / 4 - 25);
             caseTabPane.setTabMaxWidth(caseTabPane.getWidth() / 4 - 25);
         });
+
+        caseTabPane.setOnMouseClicked(event -> {
+            Tab tab = caseTabPane.getSelectionModel().getSelectedItem();
+            logger.info("Tab pane clicked, setting tabState: " + tab.getText());
+            if (tab.getText().equals(documentTab.getText())) {
+                UiStateManager.setTabState(TYPE_DOC);
+            } else if (tab.getText().equals(suspectTab.getText())) {
+                UiStateManager.setTabState(TYPE_SUSPECT);
+            } else if (tab.getText().equals(witnessTab.getText())) {
+                UiStateManager.setTabState(TYPE_WITNESS);
+            } else if (tab.getText().equals(victimTab.getText())) {
+                UiStateManager.setTabState(TYPE_VICTIM);
+            }
+        });
     }
 
     public Stage getPrimaryStage() {

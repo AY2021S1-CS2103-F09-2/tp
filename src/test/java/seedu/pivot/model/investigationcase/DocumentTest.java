@@ -6,8 +6,6 @@ import static seedu.pivot.testutil.Assert.assertThrows;
 
 import org.junit.jupiter.api.Test;
 
-import seedu.pivot.model.investigationcase.caseperson.Name;
-
 public class DocumentTest {
 
     @Test

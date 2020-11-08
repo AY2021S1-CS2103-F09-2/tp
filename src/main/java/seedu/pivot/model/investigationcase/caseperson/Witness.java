@@ -1,5 +1,7 @@
 package seedu.pivot.model.investigationcase.caseperson;
 
+import seedu.pivot.model.investigationcase.Name;
+
 /**
  * Represents a Witness in the investigation case.
  * Guarantees: details are present and not null, field values are validated, immutable.

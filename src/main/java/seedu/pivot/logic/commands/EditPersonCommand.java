@@ -7,9 +7,9 @@ import java.util.Optional;
 
 import seedu.pivot.commons.core.index.Index;
 import seedu.pivot.commons.util.CollectionUtil;
+import seedu.pivot.model.investigationcase.Name;
 import seedu.pivot.model.investigationcase.caseperson.Address;
 import seedu.pivot.model.investigationcase.caseperson.Email;
-import seedu.pivot.model.investigationcase.caseperson.Name;
 import seedu.pivot.model.investigationcase.caseperson.Phone;
 import seedu.pivot.model.investigationcase.caseperson.Sex;
 

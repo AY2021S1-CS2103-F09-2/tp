@@ -7,8 +7,6 @@ import static seedu.pivot.testutil.Assert.assertThrows;
 
 import org.junit.jupiter.api.Test;
 
-import seedu.pivot.model.investigationcase.caseperson.Name;
-
 public class TitleTest {
     private static final String ALPHANUMERIC = "ABC123";
     private static final String ALPHA = "ABC";

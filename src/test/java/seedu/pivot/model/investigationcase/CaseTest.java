@@ -15,7 +15,6 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
-import seedu.pivot.model.investigationcase.caseperson.Name;
 import seedu.pivot.model.investigationcase.caseperson.Suspect;
 import seedu.pivot.model.investigationcase.caseperson.Victim;
 import seedu.pivot.model.investigationcase.caseperson.Witness;

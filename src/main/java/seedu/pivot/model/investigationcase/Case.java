@@ -33,11 +33,11 @@ public class Case {
 
     // Identity fields
     private final Title title;
+
+    // Data fields
     private final Description description;
     private final Status status;
     private final ArchiveStatus archiveStatus;
-
-    // Data fields
     private final List<Suspect> suspects = new ArrayList<>();
     private final List<Victim> victims = new ArrayList<>();
     private final Set<Tag> tags = new HashSet<>();
@@ -64,6 +64,7 @@ public class Case {
 
     /**
      * Creates a deep copy of a Case.
+     *
      * @param toCopy Original case to be copied.
      */
     public Case(Case toCopy) {
@@ -91,14 +92,29 @@ public class Case {
         return status;
     }
 
+    /**
+     * Returns a copy of the list of documents in the Case.
+     *
+     * @return List of Documents in the Case.
+     */
     public List<Document> getDocuments() {
         return documents.stream().collect(Collectors.toList());
     }
 
+    /**
+     * Returns a copy of the list of suspects in the Case.
+     *
+     * @return List of suspects in the Case.
+     */
     public List<Suspect> getSuspects() {
         return suspects.stream().collect(Collectors.toList());
     }
 
+    /**
+     * Returns a copy of the list of victims in the Case.
+     *
+     * @return List of victims in the Case.
+     */
     public List<Victim> getVictims() {
         return victims.stream().collect(Collectors.toList());
     }
@@ -111,6 +127,11 @@ public class Case {
         return Collections.unmodifiableSet(tags);
     }
 
+    /**
+     * Returns a copy of the list of witnesses in the Case.
+     *
+     * @return List of witnesses in the Case.
+     */
     public List<Witness> getWitnesses() {
         return witnesses.stream().collect(Collectors.toList());
     }

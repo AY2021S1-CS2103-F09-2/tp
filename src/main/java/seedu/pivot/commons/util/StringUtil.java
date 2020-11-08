@@ -83,8 +83,13 @@ public class StringUtil {
         StringBuffer sb = new StringBuffer();
 
         for (int i = 0; i < arr.length; i++) {
-            sb.append(Character.toUpperCase(arr[i].charAt(0)))
-                    .append(arr[i].substring(1).toLowerCase()).append(" ");
+            String curr = arr[i];
+            if (curr.equals("")) {
+                sb.append(" ");
+            } else {
+                sb.append(Character.toUpperCase(arr[i].charAt(0)))
+                        .append(arr[i].substring(1).toLowerCase()).append(" ");
+            }
         }
         return sb.toString().trim();
     }

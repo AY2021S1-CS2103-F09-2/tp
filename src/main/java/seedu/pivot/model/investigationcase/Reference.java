@@ -53,7 +53,7 @@ public class Reference {
     }
 
     /**
-     * Returns true is the {@code Reference} exists in the program.
+     * Returns true if the {@code Reference} exists in the program.
      */
     public boolean isExists() {
         return FileUtil.isFileExists(path);

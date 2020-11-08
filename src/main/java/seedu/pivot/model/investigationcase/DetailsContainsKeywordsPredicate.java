@@ -9,7 +9,7 @@ import seedu.pivot.model.investigationcase.caseperson.Victim;
 import seedu.pivot.model.investigationcase.caseperson.Witness;
 
 /**
- * Tests that a {@code Person}'s {@code Name} matches any of the keywords given.
+ * Tests that a {@code Case}'s details matches any of the keywords given.
  */
 public class DetailsContainsKeywordsPredicate implements Predicate<Case> {
     private final List<String> keywords;

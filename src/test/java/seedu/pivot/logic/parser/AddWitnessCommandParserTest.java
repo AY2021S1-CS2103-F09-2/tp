@@ -22,7 +22,7 @@ import seedu.pivot.commons.core.index.Index;
 import seedu.pivot.logic.commands.testutil.CommandTestUtil;
 import seedu.pivot.logic.commands.witnesscommands.AddWitnessCommand;
 import seedu.pivot.logic.state.StateManager;
-import seedu.pivot.model.investigationcase.caseperson.Name;
+import seedu.pivot.model.investigationcase.Name;
 import seedu.pivot.model.investigationcase.caseperson.Witness;
 import seedu.pivot.testutil.CasePersonBuilder;
 
